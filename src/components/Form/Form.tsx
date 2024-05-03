@@ -8,6 +8,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { twMerge } from "tailwind-merge";
 import { useSubmit } from "react-router-dom";
+import { ZodType, ZodTypeDef } from "zod";
 
 type FormProps<TFormValues extends FieldValues, Schema> = {
   children: (methods: UseFormReturn<TFormValues>) => ReactNode;
@@ -15,7 +16,10 @@ type FormProps<TFormValues extends FieldValues, Schema> = {
   schema?: Schema;
   options?: UseFormProps<TFormValues>;
 };
-export const Form = <TFormValues extends FieldValues, Schema>({
+export const Form = <
+  TFormValues extends FieldValues,
+  Schema extends ZodType<unknown, ZodTypeDef, unknown>
+>({
   children,
   className,
   schema,
@@ -33,7 +37,7 @@ export const Form = <TFormValues extends FieldValues, Schema>({
           method: "post",
         })
       )}
-      className={twMerge("", className)}
+      className={twMerge("flex flex-col gap-y-1", className)}
     >
       {children(methods)}
     </form>

@@ -21,9 +21,13 @@ export const InputField = ({
   return (
     <FieldWrapper error={error} label={label} variant={variant}>
       <input
-        className={twMerge("border p-2 text-sm", className)}
+        className={twMerge(
+          "border p-2 text-sm outline-none rounded ",
+          className
+        )}
         type={type}
         placeholder={placeholder}
+        {...registration}
       />
     </FieldWrapper>
   );

@@ -11,7 +11,7 @@ const variants = {
 };
 const sizes = {
   sm: "",
-  md: "",
+  md: "p-2",
   lg: "",
 };
 type IconsProps =
@@ -31,7 +31,11 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button className={twMerge(variant, size, "")} type={type} {...props}>
+    <button
+      className={twMerge("border rounded", variants[variant], sizes[size])}
+      type={type}
+      {...props}
+    >
       {props.children}
     </button>
   );

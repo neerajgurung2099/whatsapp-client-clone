@@ -20,8 +20,8 @@ export const FieldWrapper = ({
   label,
 }: FieldWrapperProps) => {
   return (
-    <div className="flex flex-col gap-y-2">
-      <div className={`flex ${variants[variant]}`}>
+    <div className="flex flex-col ">
+      <div className={`flex gap-1 ${variants[variant]}`}>
         <label>{label}</label>
         {children}
       </div>
