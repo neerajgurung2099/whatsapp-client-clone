@@ -35,6 +35,7 @@ export const Form = <
       onSubmit={methods.handleSubmit((values) =>
         submit(values, {
           method: "post",
+          encType: "application/json",
         })
       )}
       className={twMerge("flex flex-col gap-y-1", className)}
