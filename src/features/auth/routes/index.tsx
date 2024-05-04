@@ -2,23 +2,23 @@ import { RouteObject } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
-import { signInAction } from "@/features/auth/actions/signInAction";
 import { signUpAction } from "../actions/signUpAction";
+import { signInAction } from "../actions/signInAction";
+import { rootLoader } from "../loaders/rootLoader";
 
-export const AuthRoutes: RouteObject[] = [
-  {
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <SignIn />,
-        action: signInAction,
-      },
-      {
-        path: "/signup",
-        element: <SignUp />,
-        action: signUpAction,
-      },
-    ],
-  },
-];
+export const AuthRoutes: RouteObject = {
+  element: <Layout />,
+  loader: rootLoader,
+  children: [
+    {
+      path: "/signin",
+      element: <SignIn />,
+      action: signInAction,
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
+      action: signUpAction,
+    },
+  ],
+};

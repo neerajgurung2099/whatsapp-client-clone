@@ -32,7 +32,11 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={twMerge("border rounded", variants[variant], sizes[size])}
+      className={twMerge(
+        "text-sm border rounded",
+        variants[variant],
+        sizes[size]
+      )}
       type={type}
       {...props}
     >

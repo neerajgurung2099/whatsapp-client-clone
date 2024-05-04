@@ -22,7 +22,7 @@ export const FieldWrapper = ({
   return (
     <div className="flex flex-col ">
       <div className={`flex gap-1 ${variants[variant]}`}>
-        <label>{label}</label>
+        <label className="text-sm">{label}</label>
         {children}
       </div>
       <span className="text-sm text-red-500"> {error?.message}</span>
