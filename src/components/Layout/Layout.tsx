@@ -18,7 +18,7 @@ const Sidebar = () => {
 export const Layout = () => {
   return (
     <div className=" xl:py-4  h-screen flex  justify-center  bg-slate-900 overflow-auto">
-      <div className="flex h-full max-w-[1700px] w-full min-w-[600px]">
+      <div className="flex h-full max-w-[1700px] w-full min-w-[600px] xl:px-8">
         <Sidebar />
         <div className=" h-full grow"></div>
       </div>
