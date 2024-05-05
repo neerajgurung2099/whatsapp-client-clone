@@ -1,3 +1,4 @@
+import { Layout } from "@/components/Layout";
 import { storage } from "@/utils/storage";
 import { RouteObject, redirect } from "react-router-dom";
 
@@ -10,4 +11,5 @@ const rootLoader = () => {
 export const ProtectedRoutes: RouteObject = {
   path: "/",
   loader: rootLoader,
+  element: <Layout />,
 };
