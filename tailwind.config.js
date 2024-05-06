@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         blackpearl: "rgb(32,44,51)",
+        oxfordblue: "rgb(42,57,66)",
       },
     },
   },
