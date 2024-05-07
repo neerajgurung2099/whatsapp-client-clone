@@ -2,6 +2,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { PiBroadcast } from "react-icons/pi";
 import { IoFilterSharp } from "react-icons/io5";
 import { IoIosSearch, IoIosArrowDown } from "react-icons/io";
+import { ReactNode } from "react";
 
 const SearchInput = () => {
   return (
@@ -33,7 +34,7 @@ const Sidebar = () => {
         <SearchInput />
         <IoFilterSharp className="text-slate-500" size={20} />
       </div>
-      <ul className="scrollbar flex-grow overflow-auto  ">
+      <ul className="scrollbar flex-grow overflow-auto">
         {chatList.map((value) => (
           <li className="group flex items-center gap-x-3 p-2 hover:bg-oxfordblue cursor-pointer">
             <div className="bg-gray-500 rounded-3xl p-2">
@@ -57,12 +58,16 @@ const Sidebar = () => {
     </div>
   );
 };
-export const Layout = () => {
+type LayoutProps = {
+  children: ReactNode;
+};
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className=" xl:py-4  h-screen flex  justify-center  bg-slate-900 overflow-auto">
       <div className="flex h-full max-w-[1700px] w-full min-w-[600px] xl:px-8">
-        <Sidebar />
-        <div className=" h-full grow"></div>
+        {children}
+        {/* <Sidebar />
+        <div className=" h-full grow"></div> */}
       </div>
     </div>
   );

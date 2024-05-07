@@ -11,8 +11,9 @@ export const AuthRoutes: RouteObject = {
   loader: rootLoader,
   children: [
     {
-      path: "/signin",
+      index: true,
       element: <SignIn />,
+
       action: signInAction,
     },
     {

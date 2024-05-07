@@ -57,7 +57,7 @@ export const SignUpForm = () => {
           <Button type="submit">SignUp</Button>
           <p className="text-sm mt-2">
             Already have an account?{" "}
-            <Link to={"/signin"} className="italic inline">
+            <Link to={"/"} className="italic inline">
               SignIn
             </Link>
           </p>

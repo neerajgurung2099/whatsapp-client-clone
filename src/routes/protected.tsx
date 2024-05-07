@@ -1,15 +1,12 @@
-import { Layout } from "@/components/Layout";
-import { storage } from "@/utils/storage";
-import { RouteObject, redirect } from "react-router-dom";
+import { createMemoryRouter } from "react-router-dom";
 
-const rootLoader = () => {
-  if (!storage.getToken()) {
-    return redirect("/signin");
-  }
-  return null;
-};
-export const ProtectedRoutes: RouteObject = {
-  path: "/",
-  loader: rootLoader,
-  element: <Layout />,
-};
+export const leftRouter = createMemoryRouter([
+  { path: "/", element: <></>, children: [] },
+]);
+export const rightRouter = createMemoryRouter([
+  {
+    path: "/",
+    element: <></>,
+    children: [],
+  },
+]);
