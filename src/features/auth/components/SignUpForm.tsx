@@ -2,7 +2,9 @@ import { Form, InputField } from "@/components/Form";
 import * as z from "zod";
 import { SignUpCredentialsDTO } from "../api/signUp";
 import { Button } from "@/components/Button";
-import { Link } from "react-router-dom";
+import { Link, redirect, useActionData } from "react-router-dom";
+import { UserResponse } from "../types";
+import { useAuth } from "@/stores/auth";
 const schema = z
   .object({
     email: z.string().email().min(1, "Email is required"),
@@ -24,6 +26,14 @@ type SignUpValues = SignUpCredentialsDTO & {
   confirmPassword: string;
 };
 export const SignUpForm = () => {
+  const actionData = useActionData() as UserResponse;
+
+  const { setUser } = useAuth();
+  if (actionData) {
+    setUser(actionData.user);
+    redirect("/");
+    return null;
+  }
   return (
     <Form<SignUpValues, typeof schema> schema={schema}>
       {({ register, formState }) => (

@@ -4,7 +4,6 @@ import {
   signInWithEmailAndPassword,
 } from "../api/signIn";
 import { storage } from "@/utils/storage";
-import { auth } from "@/utils/auth";
 
 export const signInAction = async ({ request }: LoaderFunctionArgs) => {
   const data: SignInCredentialsDTO = await request.json();
@@ -18,7 +17,5 @@ export const signInAction = async ({ request }: LoaderFunctionArgs) => {
     },
   };
   storage.setToken(response.jwt);
-  auth.user = response.user;
-
-  return redirect("/");
+  return response;
 };

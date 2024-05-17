@@ -4,7 +4,6 @@ import {
   signUpWithEmailAndPassword,
 } from "../api/signUp";
 import { storage } from "@/utils/storage";
-import { auth } from "@/utils/auth";
 
 export const signUpAction = async ({ request }: LoaderFunctionArgs) => {
   const data: SignUpCredentialsDTO = await request.json();
@@ -19,7 +18,6 @@ export const signUpAction = async ({ request }: LoaderFunctionArgs) => {
   };
 
   storage.setToken(response.jwt);
-  auth.user = response.user;
 
-  return redirect("/");
+  return response;
 };

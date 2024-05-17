@@ -8,7 +8,7 @@ import { rootLoader } from "../loaders/rootLoader";
 
 export const AuthRoutes: RouteObject = {
   element: <Layout />,
-  loader: rootLoader,
+  // loader: rootLoader,
   children: [
     {
       index: true,

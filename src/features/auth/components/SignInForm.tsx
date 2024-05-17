@@ -2,12 +2,24 @@ import { Form, InputField } from "@/components/Form";
 import * as z from "zod";
 import { SignInCredentialsDTO } from "../api/signIn";
 import { Button } from "@/components/Button";
-import { Link } from "react-router-dom";
+import { Link, redirect, useActionData, useNavigate } from "react-router-dom";
+import { UserResponse } from "../types";
+import { useAuth } from "@/stores/auth";
+import { useEffect } from "react";
 const schema = z.object({
   email: z.string().email().min(1, "Email is required"),
   password: z.string().min(1, "Password is required"),
 });
 export const SignInForm = () => {
+  const actionData = useActionData() as UserResponse;
+  const { setUser } = useAuth();
+
+  useEffect(() => {
+    if (actionData) {
+      setUser(actionData.user);
+    }
+  }, [actionData, setUser]);
+
   return (
     <Form<SignInCredentialsDTO, typeof schema>
       schema={schema}

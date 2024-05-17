@@ -1,9 +1,9 @@
 export type UserResponse = {
   jwt: string;
-  user: UserAuth;
+  user: AuthUser;
 };
 
-export type UserAuth = {
+export type AuthUser = {
   email: string;
   _id: string;
   userName: string;
