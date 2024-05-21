@@ -8,6 +8,9 @@ module.exports = {
         oxfordblue: "rgb(42,57,66)",
         tangaroa: "rgb(17,27,37)",
       },
+      backgroundImage: {
+        "chat-background": "url('/src/assets/chat-background.png')",
+      },
     },
   },
   plugins: [],

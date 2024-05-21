@@ -37,11 +37,7 @@ export const ChatLayout = () => {
     <div className="text-white flex flex-col h-full grow">
       <Header />
       <div className="bg-[#0B141A] flex-grow relative">
-        <img
-          src={chatBackground}
-          alt=""
-          className="opacity-5 w-full h-full absolute object-cover"
-        />
+        <div className="opacity-5 bg-repeat  absolute top-0  w-full h-full bg-chat-background"></div>
       </div>
       <Footer />
     </div>
