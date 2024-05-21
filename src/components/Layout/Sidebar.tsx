@@ -9,6 +9,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import { Link, useLocation, useOutlet } from "react-router-dom";
 import { MdOutlineGroups } from "react-icons/md";
 import { BiMessageRoundedDots } from "react-icons/bi";
+import { Avatar } from "../Avatar";
 const SearchInput = () => {
   return (
     <div className="w-full flex p-2 rounded-lg  gap-x-2 bg-blackpearl items-center ">
@@ -50,21 +51,21 @@ const SidebarHeader = () => {
     },
   ];
   return (
-    <div className="flex-shrink-0 bg-blackpearl h-16 flex justify-between items-center px-4">
-      <Link to={"/profile"} className="bg-gray-500 rounded-3xl p-2">
-        <AiOutlineUser size={25} />
+    <header className="w-full flex-shrink-0 bg-blackpearl h-16 flex justify-between items-center px-4">
+      <Link to={"/profile"}>
+        <Avatar />
       </Link>
-      <div className="flex items-center  gap-x-4 ">
+      <ul className="flex items-center  gap-x-4 ">
         {headerItems.map((item) => (
-          <div className="group text-slate-300  cursor-pointer relative">
+          <li className="group text-slate-300  cursor-pointer relative">
             <item.icon key={item.name} size={item.size} />
             <div className="invisible opacity-0 bg-black group-hover:visible group-hover:opacity-100 absolute top-full left-full  p-1 border border-slate-500  w-max transition-all group-hover:delay-500 ">
               <span className="text-xs ">{item.name}</span>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </header>
   );
 };
 export const Sidebar = () => {
@@ -88,9 +89,7 @@ export const Sidebar = () => {
         <ul className="scrollbar flex-grow overflow-auto">
           {chatList.map((value) => (
             <li className="group flex items-center gap-x-3 p-2 hover:bg-oxfordblue cursor-pointer">
-              <div className="bg-gray-500 rounded-3xl p-2">
-                <AiOutlineUser size={25} />
-              </div>
+              <Avatar />
               <div className=" flex flex-col gap-y-1 grow">
                 <span className="text-lg">User Name</span>
                 <p className="text-sm text-slate-500">Last message </p>
