@@ -91,7 +91,7 @@ export const Sidebar = () => {
             <li className="group flex items-center gap-x-3 p-2 hover:bg-oxfordblue cursor-pointer">
               <Avatar />
               <div className=" flex flex-col gap-y-1 grow">
-                <span className="text-lg">User Name</span>
+                <span className="text-semibold">User Name</span>
                 <p className="text-sm text-slate-500">Last message </p>
               </div>
               <div className="flex flex-col items-end text-slate-500">
