@@ -1,6 +1,8 @@
+import { HiOutlineEmojiHappy } from "react-icons/hi";
 import { SlOptionsVertical } from "react-icons/sl";
 import { Avatar } from "../Avatar";
-import chatBackground from "@/assets/chat-background.png";
+import { IoIosAdd } from "react-icons/io";
+import { FaMicrophone } from "react-icons/fa";
 const Header = () => {
   const headerItems = [
     {
@@ -30,7 +32,27 @@ const Header = () => {
   );
 };
 const Footer = () => {
-  return <footer className="w-full h-16 bg-blackpearl"></footer>;
+  return (
+    <footer className="w-full h-16 bg-blackpearl">
+      <ul className="flex items-center h-full gap-x-2 px-3 ">
+        <li>
+          <HiOutlineEmojiHappy size={28} className="text-slate-400 " />
+        </li>
+        <li>
+          <IoIosAdd size={35} className="text-slate-400" />
+        </li>
+        <li className="flex-grow">
+          <input
+            className="py-2 px-3 text-sm w-full bg-transparent rounded-lg bg-slate-700"
+            placeholder="Type a message"
+          />
+        </li>
+        <li>
+          <FaMicrophone className="text-slate-400" size={20} />
+        </li>
+      </ul>
+    </footer>
+  );
 };
 export const ChatLayout = () => {
   return (

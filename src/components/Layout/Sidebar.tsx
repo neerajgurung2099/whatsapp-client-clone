@@ -37,17 +37,17 @@ const SidebarHeader = () => {
     {
       name: "Channels",
       icon: BiMessageRoundedDots,
-      size: 25,
+      size: 22,
     },
     {
       name: "New Chat",
       icon: BiSolidCommentAdd,
-      size: 22,
+      size: 20,
     },
     {
       name: "Menu",
       icon: SlOptionsVertical,
-      size: 18,
+      size: 15,
     },
   ];
   return (
