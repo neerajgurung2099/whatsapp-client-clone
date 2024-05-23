@@ -3,6 +3,9 @@ import { SlOptionsVertical } from "react-icons/sl";
 import { Avatar } from "../Avatar";
 import { IoIosAdd } from "react-icons/io";
 import { FaMicrophone } from "react-icons/fa";
+import { Link, useLocation, useOutlet } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { cloneElement } from "react";
 const Header = () => {
   const headerItems = [
     {
@@ -13,11 +16,13 @@ const Header = () => {
   ];
   return (
     <header className="px-4 flex gap-x-2 items-center justify-between w-full h-16 bg-blackpearl">
-      <Avatar />
-      <div className="flex-grow flex flex-col cursor-pointer">
-        <span className="font-semibold">User name</span>
-        <span className="text-xs ">last seen today at 6:30 PM</span>
-      </div>
+      <Link to={"contactinfo"} className="flex gap-x-2 cursor-pointer">
+        <Avatar />
+        <div className="flex-grow flex flex-col ">
+          <span className="font-semibold">User name</span>
+          <span className="text-xs ">last seen today at 6:30 PM</span>
+        </div>
+      </Link>
       <ul>
         {headerItems.map((item) => (
           <li className="group text-slate-300  cursor-pointer relative">
@@ -43,7 +48,7 @@ const Footer = () => {
         </li>
         <li className="flex-grow">
           <input
-            className="py-2 px-3 text-sm w-full bg-transparent rounded-lg bg-slate-700"
+            className="py-2 px-3 text-sm w-full bg-transparent rounded-lg bg-slate-700 outline-none"
             placeholder="Type a message"
           />
         </li>
@@ -55,13 +60,20 @@ const Footer = () => {
   );
 };
 export const ChatLayout = () => {
+  const outlet = useOutlet();
+  const location = useLocation();
   return (
-    <div className="text-white flex flex-col h-full grow">
-      <Header />
-      <div className="bg-[#0B141A] flex-grow relative">
-        <div className="opacity-5 bg-repeat  absolute top-0  w-full h-full bg-chat-background"></div>
+    <>
+      <div className="text-white flex flex-col h-full grow transition-all">
+        <Header />
+        <div className="bg-[#0B141A] flex-grow relative">
+          <div className="opacity-5 bg-repeat  absolute top-0  w-full h-full bg-chat-background"></div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+      <AnimatePresence>
+        {outlet && cloneElement(outlet, { key: location.pathname })}
+      </AnimatePresence>
+    </>
   );
 };

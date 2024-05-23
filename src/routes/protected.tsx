@@ -1,4 +1,4 @@
-import { ChatLayout, Sidebar } from "@/components/Layout";
+import { ChatDrawer, ChatLayout, Sidebar } from "@/components/Layout";
 import { Profile } from "@/features/profile";
 import { createMemoryRouter } from "react-router-dom";
 
@@ -18,6 +18,11 @@ export const chatRouter = createMemoryRouter([
   {
     path: "/",
     element: <ChatLayout />,
-    children: [],
+    children: [
+      {
+        path: "contactinfo",
+        element: <ChatDrawer />,
+      },
+    ],
   },
 ]);

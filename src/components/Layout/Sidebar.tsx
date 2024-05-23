@@ -1,18 +1,15 @@
 import { AnimatePresence } from "framer-motion";
 import { cloneElement } from "react";
-import { AiOutlineUser } from "react-icons/ai";
-import { BiSolidCommentAdd } from "react-icons/bi";
+import { BiMessageRoundedDots, BiSolidCommentAdd } from "react-icons/bi";
 import { IoIosArrowDown, IoIosSearch } from "react-icons/io";
-import { IoFilterSharp } from "react-icons/io5";
+import { MdOutlineGroups } from "react-icons/md";
 import { PiBroadcast } from "react-icons/pi";
 import { SlOptionsVertical } from "react-icons/sl";
 import { Link, useLocation, useOutlet } from "react-router-dom";
-import { MdOutlineGroups } from "react-icons/md";
-import { BiMessageRoundedDots } from "react-icons/bi";
 import { Avatar } from "../Avatar";
 const SearchInput = () => {
   return (
-    <div className="w-full flex p-2 rounded-lg  gap-x-2 bg-blackpearl items-center ">
+    <div className="w-full flex px-3 py-2 rounded-lg  gap-x-2 bg-blackpearl items-center ">
       <IoIosSearch size={20} />
       <input
         className="bg-transparent outline-none w-full "
@@ -80,11 +77,10 @@ export const Sidebar = () => {
       <AnimatePresence>
         {outlet && cloneElement(outlet, { key: location.pathname })}
       </AnimatePresence>
-      <div className="bg-tangaroa flex flex-col min-w-[350px] w-1/3  h-full border-r border-slate-500 text-white relative ">
+      <div className="bg-tangaroa flex flex-col min-w-[350px] w-1/4  h-full border-r border-slate-500 text-white relative ">
         <SidebarHeader />
         <div className="flex-shrink-0 flex gap-x-4  items-center p-2">
           <SearchInput />
-          <IoFilterSharp className="text-slate-500" size={20} />
         </div>
         <ul className="scrollbar flex-grow overflow-auto">
           {chatList.map((value) => (
