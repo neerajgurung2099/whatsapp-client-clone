@@ -1,5 +1,10 @@
-import { ChatDrawer, ChatLayout, Sidebar } from "@/components/Layout";
-import { Profile } from "@/features/profile";
+import {
+  ChatDrawer,
+  ChatLayout,
+  Sidebar,
+  SidebarDrawer,
+} from "@/components/Layout";
+import { Chats, Profile } from "@/features/profile";
 import { createMemoryRouter } from "react-router-dom";
 
 export const sidebarRouter = createMemoryRouter([
@@ -8,8 +13,18 @@ export const sidebarRouter = createMemoryRouter([
     element: <Sidebar />,
     children: [
       {
-        path: "profile",
-        element: <Profile />,
+        path: "sidebar",
+        element: <SidebarDrawer />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+          {
+            path: "chats",
+            element: <Chats />,
+          },
+        ],
       },
     ],
   },

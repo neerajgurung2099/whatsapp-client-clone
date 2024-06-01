@@ -5,7 +5,7 @@ import { IoIosArrowDown, IoIosSearch } from "react-icons/io";
 import { MdOutlineGroups } from "react-icons/md";
 import { PiBroadcast } from "react-icons/pi";
 import { SlOptionsVertical } from "react-icons/sl";
-import { Link, useLocation, useOutlet } from "react-router-dom";
+import { Link, useOutlet } from "react-router-dom";
 import { Avatar } from "../Avatar";
 const SearchInput = () => {
   return (
@@ -49,7 +49,7 @@ const SidebarHeader = () => {
   ];
   return (
     <header className="w-full flex-shrink-0 bg-blackpearl h-16 flex justify-between items-center px-4">
-      <Link to={"/profile"}>
+      <Link to={"/sidebar/profile"}>
         <Avatar />
       </Link>
       <ul className="flex items-center  gap-x-4 ">
@@ -66,7 +66,7 @@ const SidebarHeader = () => {
   );
 };
 export const Sidebar = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const outlet = useOutlet();
   let chatList = [];
   for (let i = 0; i < 100; i++) {
@@ -75,7 +75,7 @@ export const Sidebar = () => {
   return (
     <>
       <AnimatePresence>
-        {outlet && cloneElement(outlet, { key: location.pathname })}
+        {outlet && cloneElement(outlet, { key: "sidebar" })}
       </AnimatePresence>
       <div className="bg-tangaroa flex flex-col min-w-[350px] w-1/4  h-full border-r border-slate-500 text-white relative ">
         <SidebarHeader />
