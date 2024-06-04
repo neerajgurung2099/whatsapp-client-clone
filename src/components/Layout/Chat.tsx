@@ -6,6 +6,7 @@ import { FaMicrophone } from "react-icons/fa";
 import { Link, useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { cloneElement } from "react";
+import { LiaCheckDoubleSolid } from "react-icons/lia";
 const Header = () => {
   const headerItems = [
     {
@@ -67,7 +68,21 @@ export const ChatLayout = () => {
       <div className="text-white flex flex-col h-full grow transition-all">
         <Header />
         <div className="bg-[#0B141A] flex-grow relative">
-          <div className="opacity-5 bg-repeat  absolute top-0  w-full h-full bg-chat-background"></div>
+          <div className="z-10 opacity-5 bg-repeat  absolute top-0  w-full h-full bg-chat-background"></div>
+          <ul className="py-2 z-20 relative w-full px-4 flex flex-col h-full overflow-hidden ">
+            <li className="text-sm bg-mosque p-2 flex flex-col rounded-lg  max-w-[80%] w-fit">
+              <span className="">
+                THis is message This is long long long long long THis is message
+                <span className="invisible inline-block w-20"></span>
+              </span>
+              <div className="-mt-1 -mb-1 flex items-center gap-x-1">
+                <span className="text-xs text-slate-400 ml-auto  -mt-1 -mb-1  ">
+                  10:29AM
+                </span>
+                <LiaCheckDoubleSolid size={18} className="text-slate-400" />
+              </div>
+            </li>
+          </ul>
         </div>
         <Footer />
       </div>
