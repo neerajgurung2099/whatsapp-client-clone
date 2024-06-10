@@ -69,17 +69,60 @@ export const ChatLayout = () => {
         <Header />
         <div className="bg-[#0B141A] flex-grow relative">
           <div className="z-10 opacity-5 bg-repeat  absolute top-0  w-full h-full bg-chat-background"></div>
-          <ul className="py-2 z-20 relative w-full px-4 flex flex-col h-full overflow-hidden ">
-            <li className="text-sm bg-mosque p-2 flex flex-col rounded-lg  max-w-[80%] w-fit">
-              <span className="">
-                THis is message This is long long long long long THis is message
-                <span className="invisible inline-block w-20"></span>
+          <ul className="py-2  gap-y-2 z-20 relative w-full px-4 flex flex-col h-full overflow-hidden ">
+            <li className="flex justify-center px-20">
+              <span className="text-sm p-2 bg-slate-700 rounded-lg">
+                6/3/2024
               </span>
-              <div className="-mt-1 -mb-1 flex items-center gap-x-1">
-                <span className="text-xs text-slate-400 ml-auto  -mt-1 -mb-1  ">
-                  10:29AM
+            </li>
+            <li className="flex px-4 ">
+              <div className="relative p-2 rounded-tl-none text-sm bg-mosque flex flex-col rounded-lg max-w-[80%] w-fit ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 137 95"
+                  fill="currentColor"
+                  className="text-mosque absolute top-[-3px] left-[-10px] "
+                >
+                  <path d="M136.296 92.2192C136.296 93.8254 134.498 94.7763 133.171 93.8725L1.367 4.15331C-0.260568 3.04542 0.523561 0.5 2.49241 0.5H134.296C135.401 0.5 136.296 1.39543 136.296 2.5V92.2192Z" />
+                </svg>
+                <span className="">
+                  THis is message This is long long long long long THis is
+                  message
+                  <span className="invisible inline-block w-20"></span>
                 </span>
-                <LiaCheckDoubleSolid size={18} className="text-slate-400" />
+                <div className="-mt-1 -mb-1 flex items-center gap-x-1">
+                  <span className="text-xs text-slate-400 ml-auto  -mt-1 -mb-1  ">
+                    10:29AM
+                  </span>
+                  <LiaCheckDoubleSolid size={18} className="text-slate-400" />
+                </div>
+              </div>
+            </li>
+            <li className="flex px-4 justify-end">
+              <div className="relative p-2 rounded-tr-none text-sm bg-mosque flex flex-col rounded-lg max-w-[80%] w-fit ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 137 95"
+                  fill="currentColor"
+                  className="text-mosque absolute top-[-3px] right-[-10px] "
+                >
+                  <path d="M0.851929 92.2192C0.851929 93.8254 2.64961 94.7763 3.97734 93.8725L135.781 4.15331C137.409 3.04542 136.625 0.5 134.656 0.5H2.85193C1.74736 0.5 0.851929 1.39543 0.851929 2.5V92.2192Z" />
+                </svg>
+                <span className="">
+                  THis is message This is long long long long long THis is
+                  message
+                  <span className="invisible inline-block w-20"></span>
+                </span>
+                <div className="-mt-1 -mb-1 flex items-center gap-x-1">
+                  <span className="text-xs text-slate-400 ml-auto  -mt-1 -mb-1  ">
+                    10:29AM
+                  </span>
+                  <LiaCheckDoubleSolid size={18} className="text-slate-400" />
+                </div>
               </div>
             </li>
           </ul>
