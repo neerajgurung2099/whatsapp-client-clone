@@ -7,6 +7,7 @@ import { Link, useLocation, useOutlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { cloneElement } from "react";
 import { LiaCheckDoubleSolid } from "react-icons/lia";
+import { LuTriangleRight } from "react-icons/lu";
 const Header = () => {
   const headerItems = [
     {
@@ -76,33 +77,17 @@ export const ChatLayout = () => {
               </span>
             </li>
             <li className="flex px-4">
-              <div className="relative">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 137 95"
-                  fill="currentColor"
-                  className="text-mosque absolute top-[-46%] left-[-10px]  "
-                >
-                  <path d="M136.296 92.2192C136.296 93.8254 134.498 94.7763 133.171 93.8725L1.367 4.15331C-0.260568 3.04542 0.523561 0.5 2.49241 0.5H134.296C135.401 0.5 136.296 1.39543 136.296 2.5V92.2192Z" />
-                </svg>
-                <span className="bg-mosque p-2 rounded-lg rounded-tl-none">
-                  Hello world
-                </span>
-              </div>
-            </li>
-            <li className="flex px-4">
               <div className="relative p-2 rounded-tl-none text-sm bg-mosque flex flex-col rounded-lg max-w-[80%] w-fit ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 137 95"
+                  width="15"
+                  height="10"
+                  viewBox="0 0 11 6"
                   fill="currentColor"
-                  className="text-mosque absolute top-[-7%] left-[-10px] "
+                  className="text-mosque absolute top-0 -left-[10px]"
+                  preserveAspectRatio="none"
                 >
-                  <path d="M136.296 92.2192C136.296 93.8254 134.498 94.7763 133.171 93.8725L1.367 4.15331C-0.260568 3.04542 0.523561 0.5 2.49241 0.5H134.296C135.401 0.5 136.296 1.39543 136.296 2.5V92.2192Z" />
+                  <path d="M11 4.48346C11 5.20138 10.2659 5.68541 9.60608 5.40261L1.47801 1.91915C0.478481 1.49078 0.784471 0 1.87193 0H10C10.5523 0 11 0.447715 11 1L11 4.48346Z" />
                 </svg>
                 <span className="">
                   THis is message This is long long long long long THis is
@@ -121,17 +106,76 @@ export const ChatLayout = () => {
               <div className="relative p-2 rounded-tr-none text-sm bg-mosque flex flex-col rounded-lg max-w-[80%] w-fit ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 137 95"
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
                   fill="currentColor"
-                  className="text-mosque absolute top-[-7%] right-[-10px] "
+                  className="text-mosque absolute top-0 right-[-10px] "
+                  preserveAspectRatio="none"
                 >
-                  <path d="M0.851929 92.2192C0.851929 93.8254 2.64961 94.7763 3.97734 93.8725L135.781 4.15331C137.409 3.04542 136.625 0.5 134.656 0.5H2.85193C1.74736 0.5 0.851929 1.39543 0.851929 2.5V92.2192Z" />
+                  <path d="M0 4.48346C0 5.20138 0.734051 5.68541 1.39392 5.40261L9.52199 1.91915C10.5215 1.49078 10.2155 0 9.12807 0H1C0.447716 0 0 0.447715 0 1L0 4.48346Z" />
                 </svg>
                 <span className="">
                   THis is message This is long long long long long THis is
-                  message
+                  message sdaf jkl dasdfas ds faa sdfasdf asd fsd f sdaf sdfaaf
+                  sdasdf sdf s df sdf asdf sdaf f asdf s adf asdfasdf asdf
+                  ;lkjsadf a sdfaasdf sd afsdf a asdf sdf sdfas dfa sdfasd f
+                  asdf sdaf sdf a sdfasdf a sdfa sdfasd f sdf sdf sdf sdf sdf
+                  sdf sdf
+                  <span className="invisible inline-block w-20"></span>
+                </span>
+                <div className="-mt-1 -mb-1 flex items-center gap-x-1">
+                  <span className="text-xs text-slate-400 ml-auto  -mt-1 -mb-1  ">
+                    10:29AM
+                  </span>
+                  <LiaCheckDoubleSolid size={18} className="text-slate-400" />
+                </div>
+              </div>
+            </li>
+            <li className="flex px-4 justify-end">
+              <div className="relative p-2 rounded-tr-none text-sm bg-mosque flex flex-col rounded-lg max-w-[80%] w-fit ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="currentColor"
+                  className="text-mosque absolute top-0 right-[-10px] "
+                  preserveAspectRatio="none"
+                >
+                  <path d="M0 4.48346C0 5.20138 0.734051 5.68541 1.39392 5.40261L9.52199 1.91915C10.5215 1.49078 10.2155 0 9.12807 0H1C0.447716 0 0 0.447715 0 1L0 4.48346Z" />
+                </svg>
+                <span className="">
+                  THis is message This is long long long long long THis is
+                  message sdaf jkl dasdfas ds faa sdfasdf asd fsd f sdaf sdfaaf
+                  sdasdf sdf s df sdf asdf sdaf f asdf s adf
+                  <span className="invisible inline-block w-20"></span>
+                </span>
+                <div className="-mt-1 -mb-1 flex items-center gap-x-1">
+                  <span className="text-xs text-slate-400 ml-auto  -mt-1 -mb-1  ">
+                    10:29AM
+                  </span>
+                  <LiaCheckDoubleSolid size={18} className="text-slate-400" />
+                </div>
+              </div>
+            </li>
+            <li className="flex px-4 justify-end">
+              <div className="relative p-2 rounded-tr-none text-sm bg-mosque flex flex-col rounded-lg max-w-[80%] w-fit ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="currentColor"
+                  className="text-mosque absolute top-0 right-[-10px] "
+                  preserveAspectRatio="none"
+                >
+                  <path d="M0 4.48346C0 5.20138 0.734051 5.68541 1.39392 5.40261L9.52199 1.91915C10.5215 1.49078 10.2155 0 9.12807 0H1C0.447716 0 0 0.447715 0 1L0 4.48346Z" />
+                </svg>
+                <span className="">
+                  THis is message This is long long long long long THis is
+                  message sdaf jkl dasdfas ds faa sdfasdf asd fsd f sdaf sdfaaf
+                  sdasdf sdf s df sdf asdf sdaf f asdf s adf
                   <span className="invisible inline-block w-20"></span>
                 </span>
                 <div className="-mt-1 -mb-1 flex items-center gap-x-1">
