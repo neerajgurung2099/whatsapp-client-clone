@@ -22,7 +22,7 @@ export const SidebarDrawer = ({ children }: SidebarContentProps) => {
         ease: "easeOut",
         duration: 0.2,
       }}
-      className="absolute top-0 bottom-0 left-0  border-r border-slate-500 bg-tangaroa z-10  w-1/4 xl:w-[calc((100%-64px)*0.25)] xl:ml-8 xl:my-4 text-white min-w-[350px] overflow-hidden"
+      className="absolute top-0 bottom-0 left-0  border-r border-slate-500 bg-tangaroa z-10  xl:ml-8 xl:my-4 text-white w-[350px]  overflow-hidden"
     >
       <div className="relative w-full h-full">
         <AnimatePresence initial={false}>

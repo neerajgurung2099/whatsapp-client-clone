@@ -77,7 +77,7 @@ export const Sidebar = () => {
       <AnimatePresence>
         {outlet && cloneElement(outlet, { key: "sidebar" })}
       </AnimatePresence>
-      <div className="bg-tangaroa flex flex-col min-w-[350px] w-1/4  h-full border-r border-slate-500 text-white relative ">
+      <div className="bg-tangaroa flex flex-col w-[350px] shrink-0 h-full border-r border-slate-500 text-white relative ">
         <SidebarHeader />
         <div className="flex-shrink-0 flex gap-x-4  items-center p-2">
           <SearchInput />
