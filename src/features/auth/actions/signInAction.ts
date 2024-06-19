@@ -6,16 +6,13 @@ import {
 import { storage } from "@/utils/storage";
 
 export const signInAction = async ({ request }: LoaderFunctionArgs) => {
-  const data: SignInCredentialsDTO = await request.json();
-  //const response = await signInWithEmailAndPassword(data);
-  const response = {
-    jwt: "test",
-    user: {
-      email: "test@gmail.com",
-      userName: "test",
-      _id: "1",
-    },
-  };
-  storage.setToken(response.jwt);
-  return response;
+  try {
+    const data: SignInCredentialsDTO = await request.json();
+    const response = await signInWithEmailAndPassword(data);
+    storage.setToken(response.token);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };

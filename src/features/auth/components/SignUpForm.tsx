@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { Link, redirect, useActionData } from "react-router-dom";
 import { UserResponse } from "../types";
 import { useAuth } from "@/stores/auth";
+import { storage } from "@/utils/storage";
 const schema = z
   .object({
     email: z.string().email().min(1, "Email is required"),
@@ -16,7 +17,7 @@ const schema = z
         "Password must contain 1 uppercase, lowercase, special character & number"
       ),
     confirmPassword: z.string(),
-    userName: z.string().min(1, "Username is required"),
+    name: z.string().min(1, "Username is required"),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Password doesn't match",
@@ -31,6 +32,7 @@ export const SignUpForm = () => {
   const { setUser } = useAuth();
   if (actionData) {
     setUser(actionData.user);
+    storage.setToken(actionData.token);
     redirect("/");
     return null;
   }
@@ -48,8 +50,8 @@ export const SignUpForm = () => {
           <InputField
             label="UserName"
             placeholder="Enter your name"
-            registration={register("userName")}
-            error={formState.errors["userName"]}
+            registration={register("name")}
+            error={formState.errors["name"]}
           />
           <InputField
             type="password"
@@ -59,6 +61,7 @@ export const SignUpForm = () => {
             error={formState.errors["password"]}
           />
           <InputField
+            type="password"
             label="Confirm Password"
             placeholder="Enter your password"
             registration={register("confirmPassword")}

@@ -3,7 +3,6 @@ import { createBrowserRouter, useRouteError } from "react-router-dom";
 
 export const Error = () => {
   const error: any = useRouteError();
-  console.log(error);
   return (
     <div className="h-screen flex justify-center items-center text-center flex-col">
       <h1 className="text-2xl font-bold ">Oops!</h1>

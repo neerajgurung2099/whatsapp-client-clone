@@ -1,10 +1,10 @@
 export type UserResponse = {
-  jwt: string;
+  token: string;
   user: AuthUser;
 };
 
 export type AuthUser = {
   email: string;
   _id: string;
-  userName: string;
+  name: string;
 };
