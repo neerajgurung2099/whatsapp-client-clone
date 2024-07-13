@@ -1,5 +1,5 @@
 import { AuthRoutes } from "@/features/auth";
-import { createBrowserRouter, useRouteError } from "react-router-dom";
+import { useRouteError } from "react-router-dom";
 
 export const Error = () => {
   const error: any = useRouteError();
@@ -11,10 +11,4 @@ export const Error = () => {
     </div>
   );
 };
-export const publicRouter = createBrowserRouter([
-  {
-    path: "/",
-    children: [AuthRoutes],
-    errorElement: <Error />,
-  },
-]);
+export const publicRoutes = [{ ...AuthRoutes }];

@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
 import whatsAppLogo from "@/assets/whatsapp-logo.png";
+import { Outlet } from "react-router-dom";
 export const Layout = () => {
   return (
     <>

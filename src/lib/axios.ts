@@ -1,8 +1,18 @@
 import { config } from "@/config";
 import { useNotificationStore } from "@/stores/notification";
-import { default as Axios } from "axios";
+import { storage } from "@/utils/storage";
+import { default as Axios, InternalAxiosRequestConfig } from "axios";
 export const axios = Axios.create({
   baseURL: config.apiUrl,
+});
+
+axios.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  const token = storage.getToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  config.headers.Accept = "application/json";
+  return config;
 });
 
 axios.interceptors.response.use(

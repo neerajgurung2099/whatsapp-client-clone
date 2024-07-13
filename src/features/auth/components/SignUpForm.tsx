@@ -1,11 +1,8 @@
+import { Button } from "@/components/Button";
 import { Form, InputField } from "@/components/Form";
+import { Link } from "react-router-dom";
 import * as z from "zod";
 import { SignUpCredentialsDTO } from "../api/signUp";
-import { Button } from "@/components/Button";
-import { Link, redirect, useActionData } from "react-router-dom";
-import { UserResponse } from "../types";
-import { useAuth } from "@/stores/auth";
-import { storage } from "@/utils/storage";
 const schema = z
   .object({
     email: z.string().email().min(1, "Email is required"),
@@ -27,15 +24,6 @@ type SignUpValues = SignUpCredentialsDTO & {
   confirmPassword: string;
 };
 export const SignUpForm = () => {
-  const actionData = useActionData() as UserResponse;
-
-  const { setUser } = useAuth();
-  if (actionData) {
-    setUser(actionData.user);
-    storage.setToken(actionData.token);
-    redirect("/");
-    return null;
-  }
   return (
     <Form<SignUpValues, typeof schema> schema={schema}>
       {({ register, formState }) => (
@@ -70,7 +58,7 @@ export const SignUpForm = () => {
           <Button type="submit">SignUp</Button>
           <p className="text-sm mt-2">
             Already have an account?{" "}
-            <Link to={"/"} className="italic inline">
+            <Link to={"../signin"} className="italic inline">
               SignIn
             </Link>
           </p>

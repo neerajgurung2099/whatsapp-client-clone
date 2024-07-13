@@ -1,18 +1,13 @@
+import { auth } from "@/utils/auth";
 import { LoaderFunctionArgs, redirect } from "react-router-dom";
-import {
-  SignInCredentialsDTO,
-  signInWithEmailAndPassword,
-} from "../api/signIn";
-import { storage } from "@/utils/storage";
+import { SignInCredentialsDTO } from "../api/signIn";
 
 export const signInAction = async ({ request }: LoaderFunctionArgs) => {
   try {
     const data: SignInCredentialsDTO = await request.json();
-    const response = await signInWithEmailAndPassword(data);
-    storage.setToken(response.token);
-    return response;
+    await auth.signIn(data);
+    return redirect("/");
   } catch (error) {
-    console.log(error);
     return null;
   }
 };
