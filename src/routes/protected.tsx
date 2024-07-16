@@ -1,19 +1,20 @@
+import { MainLayout } from "@/components/Layout";
 import { auth } from "@/utils/auth";
 import { redirect } from "react-router-dom";
 
-const MainLayout = () => {
-  console.log(auth.user);
-  return <div>Main layout</div>;
-};
 export const protectedRoutes = [
   {
     path: "/app",
+    id: "root",
     element: <MainLayout />,
-    loader: () => {
-      if (!auth.user) {
-        return redirect("/");
-      }
-      return null;
+    loader: async () => {
+      try {
+        await auth.getUser();
+        if (!auth.user) {
+          return redirect("/auth/signin");
+        }
+        return auth.user;
+      } catch (e) {}
     },
     children: [
       {

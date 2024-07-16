@@ -31,7 +31,6 @@ export const auth: Auth = {
     auth.user = user;
   },
   getUser: async () => {
-    console.log("Get user");
     if (storage.getToken()) {
       const userData = await getUser();
       auth.user = userData;

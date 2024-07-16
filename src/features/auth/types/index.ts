@@ -7,4 +7,7 @@ export type AuthUser = {
   email: string;
   _id: string;
   name: string;
+  status: string;
+  profilePictureUrl: string;
+  lastSeen: Date;
 };

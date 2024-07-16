@@ -1,11 +1,9 @@
-import { AnimatePresence } from "framer-motion";
-import { cloneElement } from "react";
 import { FaMicrophone } from "react-icons/fa";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import { IoIosAdd } from "react-icons/io";
 import { LiaCheckDoubleSolid } from "react-icons/lia";
 import { SlOptionsVertical } from "react-icons/sl";
-import { Link, useLocation, useOutlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Avatar } from "../Avatar";
 const Header = () => {
   const headerItems = [
@@ -26,7 +24,10 @@ const Header = () => {
       </Link>
       <ul>
         {headerItems.map((item) => (
-          <li className="group text-slate-300  cursor-pointer relative">
+          <li
+            key={item.name}
+            className="group text-slate-300  cursor-pointer relative"
+          >
             <item.icon key={item.name} size={item.size} />
             <div className="invisible opacity-0 bg-black group-hover:visible group-hover:opacity-100 absolute top-full   p-1 border border-slate-500  w-max transition-all group-hover:delay-500 ">
               <span className="text-xs ">{item.name}</span>
@@ -181,8 +182,6 @@ const ChatBox = () => {
   );
 };
 export const ChatLayout = () => {
-  const outlet = useOutlet();
-  const location = useLocation();
   return (
     <>
       <div className="text-white flex flex-col h-full grow transition-all">
@@ -190,9 +189,6 @@ export const ChatLayout = () => {
         <ChatBox />
         <Footer />
       </div>
-      <AnimatePresence>
-        {outlet && cloneElement(outlet, { key: location.pathname })}
-      </AnimatePresence>
     </>
   );
 };

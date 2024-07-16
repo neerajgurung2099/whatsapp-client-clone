@@ -1,7 +1,7 @@
+import { useSidebarHistoryStore } from "@/stores/sidebarHistory";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { HiArrowLeft } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
 type SidebarContentProps = {
   children: ReactNode;
   title: string;
@@ -20,7 +20,7 @@ const variants = {
   },
 };
 export const SidebarContent = ({ children, title }: SidebarContentProps) => {
-  const navigate = useNavigate();
+  const { pop } = useSidebarHistoryStore();
   return (
     <motion.div
       initial={{ x: "-100%" }}
@@ -35,13 +35,13 @@ export const SidebarContent = ({ children, title }: SidebarContentProps) => {
         <div className="flex gap-x-9 w-full items-center ">
           <HiArrowLeft
             size={22}
-            onClick={() => navigate(-1)}
             className="cursor-pointer"
+            onClick={() => pop()}
           />
           <h1 className="text-xl font-semibold">{title}</h1>
         </div>
       </header>
-      <div className="h-full ">{children}</div>
+      <div className="h-full p-4">{children}</div>
     </motion.div>
   );
 };
