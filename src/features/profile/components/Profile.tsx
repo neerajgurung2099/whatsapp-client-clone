@@ -1,9 +1,9 @@
 import { Avatar } from "@/components/Avatar";
 import { SidebarContent } from "@/components/Layout";
-import { AuthUser } from "@/features/auth";
+import { AppLoaderData } from "@/types";
 import { useRouteLoaderData } from "react-router-dom";
 export const Profile = () => {
-  const { user } = useRouteLoaderData("root") as { user: AuthUser };
+  const { user } = useRouteLoaderData("app") as AppLoaderData;
   return (
     <SidebarContent title="Profile">
       <div className="flex flex-col gap-y-8 items-center">

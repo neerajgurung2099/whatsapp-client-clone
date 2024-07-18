@@ -11,4 +11,4 @@ export const Error = () => {
     </div>
   );
 };
-export const publicRoutes = [{ ...AuthRoutes }];
+export const publicRoutes = AuthRoutes;

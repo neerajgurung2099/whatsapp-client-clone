@@ -1,26 +1,38 @@
 import { MainLayout } from "@/components/Layout";
+import { getChats } from "@/features/chat/api/getChats";
 import { auth } from "@/utils/auth";
+import { storage } from "@/utils/storage";
 import { redirect } from "react-router-dom";
 
-export const protectedRoutes = [
-  {
-    path: "/app",
-    id: "root",
-    element: <MainLayout />,
-    loader: async () => {
-      try {
-        await auth.getUser();
-        if (!auth.user) {
-          return redirect("/auth/signin");
-        }
-        return auth.user;
-      } catch (e) {}
+const appLoader = async () => {
+  try {
+    if (!storage.getToken()) {
+      return redirect("/auth/signin");
+    }
+    // get user info from server using token
+    await auth.getUser();
+
+    // redirect to sigin in if token is invalid
+    if (!auth.user) {
+      return redirect("/auth/signin");
+    }
+
+    // get chat list
+    const chatList = await getChats();
+    console.log({ chatList, user: auth.user });
+    return { user: auth.user, chatList: chatList };
+  } catch (e) {}
+};
+
+export const protectedRoutes = {
+  path: "app",
+  id: "app",
+  loader: appLoader,
+  element: <MainLayout />,
+  children: [
+    {
+      path: "dashboard",
+      element: <h1>Dashboard</h1>,
     },
-    children: [
-      {
-        path: "dashboard",
-        element: <h1>Dashboard</h1>,
-      },
-    ],
-  },
-];
+  ],
+};
