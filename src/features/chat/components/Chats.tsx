@@ -20,7 +20,6 @@ export const Chats = () => {
           <div className="flex flex-col items-end text-slate-500">
             <span className="text-sm">1:23 PM</span>
             <IoIosArrowDown
-              onClick={() => console.log("clicked")}
               className="opacity-0 invisible translate-x-2 group-hover:opacity-100 group-hover:visible group-hover:translate-x-0 transition-all "
               size={25}
             />

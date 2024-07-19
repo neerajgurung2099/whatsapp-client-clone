@@ -25,7 +25,6 @@ export const auth: Auth = {
     auth.user = user;
   },
   signUp: async (data: SignUpCredentialsDTO) => {
-    console.log("Signed up");
     const { user, token } = await signUpWithEmailAndPassword(data);
     storage.setToken(token);
     auth.user = user;

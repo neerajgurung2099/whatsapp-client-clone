@@ -19,7 +19,6 @@ const appLoader = async () => {
 
     // get chat list
     const chatList = await getChats();
-    console.log({ chatList, user: auth.user });
     return { user: auth.user, chatList: chatList };
   } catch (e) {}
 };
