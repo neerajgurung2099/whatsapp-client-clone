@@ -24,10 +24,8 @@ export const SidebarLayout = () => {
   }
   return (
     <>
-      <div className="bg-tangaroa flex flex-col w-[423px] shrink-0 h-full border-r border-gray-800  text-white relative  overflow-hidden">
-        <AnimatePresence>
-          {current() ? <SidebarDrawer /> : null}
-        </AnimatePresence>
+      <AnimatePresence>{current() ? <SidebarDrawer /> : null}</AnimatePresence>
+      <div className="bg-tangaroa flex flex-col w-[423px] shrink-0 h-full border-r border-gray-800  text-white relative  ">
         <SidebarHeader />
         <div className="flex-shrink-0 flex gap-x-4  items-center p-2">
           <SearchInput />

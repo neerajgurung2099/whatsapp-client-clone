@@ -17,7 +17,7 @@ export const SidebarDrawer = () => {
         ease: "easeOut",
         duration: 0.2,
       }}
-      className="absolute top-0 bottom-0 left-0  right-0  bg-tangaroa z-10   text-white  overflow-hidden"
+      className="absolute top-0 bottom-0 w-[423px]   bg-tangaroa z-10   text-white  overflow-hidden  xl:my-4"
     >
       <div className="relative w-full h-full">
         <AnimatePresence initial={false}>{current()}</AnimatePresence>
