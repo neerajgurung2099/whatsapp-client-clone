@@ -1,6 +1,6 @@
 import { Button } from "@/components/Button";
 import { Form, InputField } from "@/components/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import * as z from "zod";
 import { SignUpCredentialsDTO } from "../api/signUp";
 const schema = z
@@ -24,6 +24,7 @@ type SignUpValues = SignUpCredentialsDTO & {
   confirmPassword: string;
 };
 export const SignUpForm = () => {
+  const navigation = useNavigation();
   return (
     <Form<SignUpValues, typeof schema> schema={schema}>
       {({ register, formState }) => (
@@ -55,7 +56,9 @@ export const SignUpForm = () => {
             registration={register("confirmPassword")}
             error={formState.errors["confirmPassword"]}
           />
-          <Button type="submit">SignUp</Button>
+          <Button loading={navigation.state === "loading"} type="submit">
+            SignUp
+          </Button>
           <p className="text-sm mt-2">
             Already have an account?{" "}
             <Link to={"../signin"} className="italic inline">

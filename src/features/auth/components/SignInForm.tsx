@@ -1,6 +1,6 @@
 import { Button } from "@/components/Button";
 import { Form, InputField } from "@/components/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import * as z from "zod";
 import { SignInCredentialsDTO } from "../api/signIn";
 const schema = z.object({
@@ -8,6 +8,7 @@ const schema = z.object({
   password: z.string().min(1, "Password is required"),
 });
 export const SignInForm = () => {
+  const navigation = useNavigation();
   return (
     <Form<SignInCredentialsDTO, typeof schema>
       schema={schema}
@@ -29,7 +30,9 @@ export const SignInForm = () => {
             registration={register("password")}
             error={formState.errors["password"]}
           />
-          <Button type="submit">Sign In</Button>
+          <Button loading={navigation.state === "submitting"} type="submit">
+            Sign In
+          </Button>
           <p className="text-sm  mt-2">
             Don't have an account?{" "}
             <Link to={"../signup"} className="inline italic">

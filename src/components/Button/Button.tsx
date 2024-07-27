@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
+import { Spinner } from "../spinner";
 
 const variants = {
   primary: "",
@@ -23,11 +24,13 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
     variant?: keyof typeof variants;
     className?: string;
     size?: keyof typeof sizes;
+    loading?: boolean;
   };
 export const Button = ({
   type = "button",
   variant = "primary",
   size = "md",
+  loading = false,
   ...props
 }: ButtonProps) => {
   return (
@@ -40,7 +43,9 @@ export const Button = ({
       type={type}
       {...props}
     >
-      {props.children}
+      <div className="flex items-center justify-center gap-x-2">
+        {loading ? <Spinner size="sm" /> : null} {props.children}
+      </div>
     </button>
   );
 };

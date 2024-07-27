@@ -15,6 +15,7 @@ type Auth = {
   signIn: (data: SignInCredentialsDTO) => Promise<void>;
   signUp: (data: SignUpCredentialsDTO) => void;
   getUser: () => void;
+  signOut: () => void;
 };
 export const auth: Auth = {
   user: null,
@@ -34,5 +35,9 @@ export const auth: Auth = {
       const userData = await getUser();
       auth.user = userData;
     }
+  },
+  signOut: () => {
+    storage.clearToken();
+    window.location.href = "/";
   },
 };
