@@ -1,8 +1,9 @@
 import { Dropdown } from "@/components/Dropdown";
 import { Profile } from "@/features/profile";
 import { useSidebarHistoryStore } from "@/stores/sidebarHistory";
+import { auth } from "@/utils/auth";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import {
   MdMoreVert,
   MdOutlineChat,
@@ -10,8 +11,7 @@ import {
   MdOutlineWifiTethering,
 } from "react-icons/md";
 import { Avatar } from "../../../components/Avatar";
-import { auth } from "@/utils/auth";
-import { redirect } from "react-router-dom";
+import { NewChat } from "@/features/chat";
 const headerItems = [
   {
     name: "Communities",
@@ -27,6 +27,7 @@ const headerItems = [
     name: "New Chat",
     icon: MdOutlineChat,
     size: 20,
+    component: <NewChat />,
   },
   {
     name: "Menu",
@@ -36,10 +37,6 @@ const headerItems = [
 ];
 
 const dropDownMenuItems = [
-  {
-    name: "Settings",
-    onClick: () => {},
-  },
   {
     name: "Logout",
     onClick: () => {
@@ -64,6 +61,9 @@ export const SidebarHeader = () => {
   const [activeItem, setActiveItem] = useState<number | null>(null);
   const handleClick = (index: number) => {
     // if the active element is clicked set activeItem to null
+    if (headerItems[index].component) {
+      push(headerItems[index].component as ReactElement);
+    }
     if (activeItem === index) {
       setActiveItem(null);
     } else {
@@ -98,7 +98,13 @@ export const SidebarHeader = () => {
         {headerItems.map((item, index) => (
           <motion.li
             variants={variants}
-            animate={activeItem === index ? "open" : "closed"}
+            animate={
+              activeItem === index
+                ? activeItem === headerItems.length - 1
+                  ? "open"
+                  : "closed"
+                : "closed"
+            }
             key={item.name}
             onClick={() => handleClick(index)}
             className={` text-slate-300  cursor-pointer relative rounded-[50%] p-2 `}
